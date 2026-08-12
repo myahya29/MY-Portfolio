@@ -27,6 +27,13 @@ const CATEGORY_FILTERS: { key: string; label: string }[] = [
   { key: 'theory', label: 'Theory' },
 ];
 
+const FEATURED_PROJECT_ORDER = [
+  'zaryonix-project',
+  'task-scheduling-project',
+  'habitflow-project',
+  'brix-filling-project',
+];
+
 type RelatedLabel = { name: string; type: 'experience' | 'education' | 'organization'; id: string; logo?: string };
 
 /** Resolve a project's related_experiences to org/school/company labels (deduped by name). */
@@ -127,7 +134,7 @@ function ProjectIndexRow({ project, number }: { project: Project; number: number
             )}
             {project.technologies && project.technologies.length > 0 && (
               <div className="mt-4 flex flex-wrap gap-2">
-                {project.technologies.slice(0, 4).map((tech, i) => (
+                {project.technologies.map((tech, i) => (
                   <span
                     key={i}
                     className="rounded-full border border-[#2a2a2a] bg-transparent px-3 py-1 text-[12px] text-[#a3a3a3]"
@@ -239,16 +246,21 @@ export function ProjectsHorizontalSection() {
     return () => window.removeEventListener('resetProjectFilter', handleReset);
   }, []);
 
-  // Orgs/schools/companies attached to any project (deduped by name, first appearance order).
+  const featuredProjects = useMemo(
+    () => PROJECTS.filter((project) => FEATURED_PROJECT_ORDER.includes(project.id)),
+    []
+  );
+
+  // Orgs/schools/companies attached to the featured projects only.
   const attachedOrgs = useMemo(() => {
     const byName = new Map<string, RelatedLabel>();
-    for (const project of PROJECTS) {
+    for (const project of featuredProjects) {
       for (const r of getRelatedLabels(project)) {
         if (r.logo && !byName.has(r.name)) byName.set(r.name, r);
       }
     }
     return Array.from(byName.values());
-  }, []);
+  }, [featuredProjects]);
 
   const toggleOrg = (name: string) => {
     setSelectedOrgs((prev) => {
@@ -260,14 +272,18 @@ export function ProjectsHorizontalSection() {
   };
 
   const filteredProjects = useMemo(() => {
-    return PROJECTS.filter((project) => {
+    const selectedProjects = PROJECTS.filter((project) => {
       const cats = project.categories || [];
       const matchesCategory = activeCategory === 'all' || cats.includes(activeCategory);
       const matchesOrg =
         selectedOrgs.size === 0 ||
         getRelatedLabels(project).some((r) => selectedOrgs.has(r.name));
-      return matchesCategory && matchesOrg;
-    }).sort((a, b) => (b.sortDate || '').localeCompare(a.sortDate || ''));
+      return matchesCategory && matchesOrg && FEATURED_PROJECT_ORDER.includes(project.id);
+    });
+
+    return FEATURED_PROJECT_ORDER
+      .map((id) => selectedProjects.find((project) => project.id === id))
+      .filter(Boolean) as Project[];
   }, [activeCategory, selectedOrgs]);
 
   return (
