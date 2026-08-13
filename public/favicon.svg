@@ -1,13 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" rx="12" fill="#141414"/>
-  <text
-    x="32"
-    y="46"
-    font-family="Arial Black, Arial, sans-serif"
-    font-weight="900"
-    font-size="42"
-    text-anchor="middle"
-    fill="#3B82F6"
-    letter-spacing="-1"
-  >Y</text>
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0c"/>
+      <stop offset="100%" stop-color="#1c1c21"/>
+    </linearGradient>
+    <linearGradient id="silver" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#9d9da5"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="116" fill="url(#bg)"/>
+  <rect width="512" height="512" rx="116" fill="url(#glow)"/>
+  <rect x="5" y="5" width="502" height="502" rx="112" fill="none" stroke="#2c2c32" stroke-width="3"/>
+
+  <!-- Y monogram: shorter fork (arms) + long bold stem so it unmistakably reads as Y -->
+  <g stroke-linecap="round" fill="none">
+    <!-- left arm -->
+    <path d="M 152 108 L 256 216" stroke="url(#silver)" stroke-width="34"/>
+    <!-- right arm -->
+    <path d="M 360 108 L 256 216" stroke="url(#silver)" stroke-width="34"/>
+    <!-- long, thick, solid-white stem clearly longer than the arms -->
+    <path d="M 256 216 L 256 420" stroke="#ffffff" stroke-width="34"/>
+  </g>
 </svg>
