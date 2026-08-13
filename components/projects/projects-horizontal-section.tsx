@@ -146,7 +146,7 @@ function ProjectIndexRow({ project, number }: { project: Project; number: number
             )}
           </div>
 
-          {(project.demoVideo || webLink || codeAccessPoints.length > 0) && (
+          {(project.image || project.demoVideo || webLink || codeAccessPoints.length > 0) && (
             <div className="w-full sm:flex-1 sm:max-w-[480px]">
               <ProjectMedia project={project} />
             </div>
@@ -313,11 +313,10 @@ export function ProjectsHorizontalSection() {
                       aria-pressed={active}
                       aria-label={`Filter by ${org.name}`}
                       title={org.name}
-                      className={`h-9 w-9 overflow-hidden rounded-[10px] transition-all ${
-                        active
-                          ? 'opacity-100 ring-2 ring-[#f5f5f0]/70'
-                          : 'opacity-70 ring-1 ring-white/10 hover:opacity-100 hover:ring-white/25'
-                      }`}
+                      className={`h-9 w-9 overflow-hidden rounded-[10px] transition-all ${active
+                        ? 'opacity-100 ring-2 ring-[#f5f5f0]/70'
+                        : 'opacity-70 ring-1 ring-white/10 hover:opacity-100 hover:ring-white/25'
+                        }`}
                     >
                       <img src={org.logo} alt={org.name} className="h-full w-full object-contain" />
                     </button>
@@ -339,11 +338,10 @@ export function ProjectsHorizontalSection() {
                     type="button"
                     onClick={() => setActiveCategory(cat.key)}
                     aria-pressed={active}
-                    className={`rounded-full border px-4 py-1.5 text-[13px] font-medium transition-colors ${
-                      active
-                        ? 'border-[#404040] bg-[#262626] text-[#f5f5f0]'
-                        : 'border-[#333]/60 bg-transparent text-[#a3a3a3] hover:border-[#3a3a3a]/80 hover:bg-[#1f1f1f] hover:text-[#c4c4c4]'
-                    }`}
+                    className={`rounded-full border px-4 py-1.5 text-[13px] font-medium transition-colors ${active
+                      ? 'border-[#404040] bg-[#262626] text-[#f5f5f0]'
+                      : 'border-[#333]/60 bg-transparent text-[#a3a3a3] hover:border-[#3a3a3a]/80 hover:bg-[#1f1f1f] hover:text-[#c4c4c4]'
+                      }`}
                   >
                     {cat.label}
                   </button>

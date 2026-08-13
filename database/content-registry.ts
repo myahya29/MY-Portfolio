@@ -585,6 +585,52 @@ export const PROJECTS: Project[] = [
       { type: 'hosted', url: 'https://breaking-dijkstra.vercel.app/', label: 'Live Demo' },
     ],
     related_experiences: ['sjsu-bachelors'],
+  },
+  {
+    id: 'brix-filling-project',
+    title: 'Brix Filling',
+    subtitle: 'Brick Laying & Filling Simulator',
+    period: '07/2026 – Present',
+    sortDate: '2026-07',
+    description:
+      'A visual simulator for brick laying and filling patterns — plan, preview, and optimize layouts in real time.',
+    technologies: ['React', 'TypeScript', 'Tailwind CSS'],
+    entry_point: 'live',
+    link: 'https://github.com/myahya29',
+    status: 'In Progress',
+    readMe: false,
+    categories: ['apps'],
+    summary: 'Brick laying and filling pattern simulator',
+    related_experiences: ['zaryonix-tech'],
+    accessible_at: ['github'],
+    access_points: [
+      { type: 'github', url: 'https://github.com/myahya29', label: 'GitHub' },
+    ],
+    image: '/brix filling.png',
+    imageAlt: 'Brix Filling preview',
+  },
+  {
+    id: 'habitflow-project',
+    title: 'HabitFlow',
+    subtitle: 'Habit Tracking App',
+    period: '06/2026 – Present',
+    sortDate: '2026-06',
+    description:
+      'A habit tracking application that helps users build and maintain daily routines with streaks, reminders, and progress analytics.',
+    technologies: ['React', 'Node.js', 'MongoDB', 'Express.js'],
+    entry_point: 'live',
+    link: 'https://github.com/myahya29',
+    status: 'In Progress',
+    readMe: false,
+    categories: ['apps'],
+    summary: 'Daily habit tracker with streaks and analytics',
+    related_experiences: ['zaryonix-tech'],
+    accessible_at: ['github'],
+    access_points: [
+      { type: 'github', url: 'https://github.com/myahya29', label: 'GitHub' },
+    ],
+    image: '/habit app.png',
+    imageAlt: 'HabitFlow App preview',
   }
 ];
 

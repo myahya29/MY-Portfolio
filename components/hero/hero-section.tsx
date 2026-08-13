@@ -75,8 +75,8 @@ export function HeroSection() {
                   className="rounded-md border border-[#525252]/40 px-6 py-2.5 text-sm font-medium text-[#f5f5f0] transition-colors hover:border-[#737373] hover:bg-[#262626]"
                   onClick={() => {
                     const link = document.createElement('a');
-                    link.href = '/Resume.pdf';
-                    link.download = 'Muhammad_Yahya_Resume.pdf';
+                    link.href = '/Muhammad Yahya Resume.pdf';
+                    link.download = 'Muhammad Yahya Resume.pdf';
                     document.body.appendChild(link);
                     link.click();
                     document.body.removeChild(link);
