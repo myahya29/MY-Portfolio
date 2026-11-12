@@ -29,6 +29,7 @@ const CATEGORY_FILTERS: { key: string; label: string }[] = [
 
 const FEATURED_PROJECT_ORDER = [
   'zaryonix-project',
+  'cmp-project',
   'task-scheduling-project',
   'habitflow-project',
   'brix-filling-project',

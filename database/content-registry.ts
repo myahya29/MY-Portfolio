@@ -25,12 +25,12 @@ export const SKILL_MAPPINGS = [
   { skill: 'CSS3', experienceIds: ['zaryonix-tech'], projectIds: ['iris-project', 'boosted-project', 'any-project', 'umlazy-project', 'graf-project'], educationIds: ['uob-bachelors'] },
   { skill: 'JavaScript', experienceIds: ['zaryonix-tech'], projectIds: ['iris-project', 'boosted-project', 'any-project', 'umlazy-project', 'graf-project'], educationIds: ['uob-bachelors'] },
   { skill: 'TypeScript', experienceIds: ['zaryonix-tech'], projectIds: ['iris-project', 'boosted-project', 'any-project', 'umlazy-project', 'graf-project'] },
-  { skill: 'React', experienceIds: ['zaryonix-tech'], projectIds: ['iris-project', 'boosted-project', 'any-project', 'umlazy-project', 'graf-project'] },
+  { skill: 'React', experienceIds: ['zaryonix-tech'], projectIds: ['iris-project', 'boosted-project', 'any-project', 'umlazy-project', 'graf-project', 'cmp-project'] },
   { skill: 'Next.js', experienceIds: ['zaryonix-tech'], projectIds: ['umlazy-project'] },
-  { skill: 'Node.js', experienceIds: ['zaryonix-tech'], projectIds: ['iris-project', 'boosted-project', 'any-project'] },
-  { skill: 'Express.js', experienceIds: ['zaryonix-tech'], projectIds: ['iris-project', 'boosted-project', 'any-project'] },
-  { skill: 'MongoDB', experienceIds: ['zaryonix-tech'], projectIds: ['iris-project', 'boosted-project', 'any-project'] },
-  { skill: 'Tailwind CSS', experienceIds: ['zaryonix-tech'], projectIds: ['iris-project', 'boosted-project', 'any-project', 'umlazy-project', 'graf-project'] },
+  { skill: 'Node.js', experienceIds: ['zaryonix-tech'], projectIds: ['iris-project', 'boosted-project', 'any-project', 'cmp-project'] },
+  { skill: 'Express.js', experienceIds: ['zaryonix-tech'], projectIds: ['iris-project', 'boosted-project', 'any-project', 'cmp-project'] },
+  { skill: 'MongoDB', experienceIds: ['zaryonix-tech'], projectIds: ['iris-project', 'boosted-project', 'any-project', 'cmp-project'] },
+  { skill: 'Tailwind CSS', experienceIds: ['zaryonix-tech'], projectIds: ['iris-project', 'boosted-project', 'any-project', 'umlazy-project', 'graf-project', 'cmp-project'] },
   { skill: 'Git', experienceIds: ['zaryonix-tech'], projectIds: ['iris-project', 'boosted-project', 'any-project', 'umlazy-project', 'graf-project'], educationIds: ['uob-bachelors'] },
   { skill: 'GitHub', experienceIds: ['zaryonix-tech'], projectIds: ['iris-project', 'boosted-project', 'any-project', 'umlazy-project', 'graf-project'], educationIds: ['uob-bachelors'] },
   { skill: 'REST API', experienceIds: ['zaryonix-tech'], projectIds: ['iris-project', 'boosted-project', 'any-project'] },
@@ -346,6 +346,7 @@ export function getTimelineYearTicks(): { label: string; sortKey: number }[] {
 
 export const PROJECT_CATEGORIES = [
   { key: 'all', label: 'All' },
+  { key: 'featured', label: 'Featured' },
   { key: 'products', label: 'Products' },
   { key: 'apps', label: 'Apps & Tools' },
   { key: 'theory', label: 'Theory' },
@@ -633,7 +634,37 @@ export const PROJECTS: Project[] = [
     ],
     image: '/habit app.png',
     imageAlt: 'HabitFlow App preview',
-  }
+  },
+  {
+    id: 'cmp-project',
+    title: 'Citizen Complaint Portal',
+    subtitle: 'Municipal Grievance Management System',
+    period: '2026',
+    sortDate: '2026-05',
+    description:
+      'A civic tech platform for filing and tracking municipal complaints across Roads, Sanitation, Water Supply, and Power Grid — with real-time duplicate prevention, community upvoting, and officer feedback.',
+    fullDescription:
+      'The Citizen Complaint Portal is an official municipal grievance management system built for a hackathon. Citizens can register accounts, file complaints across four departments (Roads, Sanitation, Water Supply, Power Grid), and track resolution status in real time. The platform features intelligent duplicate detection that scans active complaints while filing, a community upvoting system that elevates high-priority issues for faster dispatch, and an officer feedback loop with ratings and remarks. Designed to bridge the gap between citizens and local government.',
+    technologies: ['React', 'Node.js', 'MongoDB', 'Express.js', 'Tailwind CSS'],
+    entry_point: 'live',
+    link: 'https://hackathon-project-sknr.vercel.app/',
+    status: 'Live',
+    readMe: false,
+    categories: ['apps'],
+    summary: 'Municipal complaint portal with real-time tracking and community upvoting',
+    accessible_at: ['hosted'],
+    access_points: [
+      { type: 'hosted', url: 'https://hackathon-project-sknr.vercel.app/', label: 'Live Demo' },
+    ],
+    image: '/CMP.png',
+    imageAlt: 'Citizen Complaint Portal preview',
+    highlights: [
+      'Real-time duplicate complaint detection',
+      'Community priority upvoting system',
+      'Officer remarks and satisfaction ratings',
+      'Multi-department complaint routing',
+    ],
+  },
 ];
 
 export const EDUCATION = [
